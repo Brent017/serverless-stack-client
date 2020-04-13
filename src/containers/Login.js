@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import "./Login.css";
 import { useAppContext } from "../libs/contextLib";
 import { Auth } from "aws-amplify";
+import LoaderButton from "../components/LoaderButton";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -51,9 +52,15 @@ export default function Login() {
             type="password"
           />
         </FormGroup>
-        <Button block bsSize="large" disabled={!validateForm()} type="submit">
+        <LoaderButton
+          block
+          type="submit"
+          bsSize="large"
+          isLoading={isLoading}
+          disabled={!validateForm()}
+        >
           Login
-        </Button>
+        </LoaderButton>
       </form>
     </div>
   );
