@@ -16,10 +16,14 @@ export default function NewNote() {
     return content.length > 0;
   }
 
+  function handleFileChange(event) {
+    File.current = event.target.files[0];
+  }
+
   async function handleSubmit(event) {
     event.preventDefault();
 
-    if (File.current && File.curent.size > config.MAX_ATTACHMENT_SIZE) {
+    if (File.current && File.current.size > config.MAX_ATTACHMENT_SIZE) {
       alert(
         `Please pick a file smaller than ${
           config.MAX_ATTACHMENT_SIZE / 1000000
