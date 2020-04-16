@@ -51,11 +51,6 @@ export default function Signup() {
       setNewUser(newUser);
     } catch (e) {
       onError(e);
-      if (UsernameExistsException === true) {
-        Auth.resendSignUp(fields.email).then(() => {
-          console.log("code resent successfully");
-        });
-      }
 
       setIsLoading(false);
     }
