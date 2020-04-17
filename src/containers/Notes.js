@@ -3,8 +3,9 @@ import { useParams, useHistory } from "react-router-dom";
 import { API, Storage, strike } from "aws-amplify";
 import { onError } from "../libs/errorLib";
 import config from "../config";
-import { FormControl } from "react-bootstrap";
+import { FormControl, FormGroup, ControlLabel } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
+import "./Notes.css";
 
 export default function Notes() {
   const file = useRef(null);
@@ -96,7 +97,7 @@ export default function Notes() {
           {note.attachment && (
             <FormGroup>
               <ControlLabel>Attachment</ControlLabel>
-              <FormCpontrol.Static>
+              <FormControl.Static>
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
@@ -104,7 +105,7 @@ export default function Notes() {
                 >
                   {formatFilename(note.attachment)}
                 </a>
-              </FormCpontrol.Static>
+              </FormControl.Static>
             </FormGroup>
           )}
           <FormGroup controlId="file">
