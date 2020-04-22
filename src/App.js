@@ -52,7 +52,7 @@ function App(props) {
               {isAuthenticated ? (
                 <>
                   <LinkContainer to="/settings">
-                    <NamItem>Settings</NamItem>
+                    <NavItem>Settings</NavItem>
                   </LinkContainer>
                   <NavItem onClick={handleLogout}>Logout</NavItem>
                 </>
